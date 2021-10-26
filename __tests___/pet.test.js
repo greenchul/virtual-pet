@@ -63,3 +63,30 @@ describe("Feed method", () => {
     expect(pet.hunger).toBe(0);
   });
 });
+
+describe("Checkup method", () => {
+  const pet = new Pet("Celine");
+  console.log(pet);
+  test("Should return 'I feel great!' when fitness is > 3 and when hunger is < than 5", () => {
+    expect(pet.checkup()).toBe("I feel great!");
+  });
+
+  test("Should return ''I need a walk' when fitness is 3 or less", () => {
+    pet.fitness = 3;
+    expect(pet.checkup()).toBe("I need a walk");
+    pet.fitness = 1;
+    expect(pet.checkup()).toBe("I need a walk");
+  });
+  test("Should return 'I am hungry' when hunger is 5 or greater", () => {
+    pet.hunger = 5;
+    pet.fitness = 7;
+    expect(pet.checkup()).toBe("I am hungry");
+    pet.hunger = 10;
+    expect(pet.checkup()).toBe("I am hungry");
+  });
+  test("Should return 'I am hungry AND I need a walk' when hunger is 5 or greater AND fitness is 3 or less", () => {
+    pet.hunger = 7;
+    pet.fitness = 3;
+    expect(pet.checkup()).toBe("I am hungry AND I need a walk");
+  });
+});
