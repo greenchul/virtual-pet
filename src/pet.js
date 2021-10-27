@@ -1,6 +1,6 @@
 const MIN_HUNGER = 0;
 const MAX_FITNESS = 10;
-const MIN_AGE
+const MIN_AGE = 0;
 
 class Pet {
   constructor(name) {
@@ -8,6 +8,13 @@ class Pet {
     this.age = MIN_AGE;
     this.hunger = MIN_HUNGER;
     this.fitness = MAX_FITNESS;
+  }
+  get isAlive() {
+    if (this.fitness <= 0 || this.hunger >= 10 || this.age >= 30) {
+      return false;
+    } else {
+      return true;
+    }
   }
   growUp() {
     this.age += 1;

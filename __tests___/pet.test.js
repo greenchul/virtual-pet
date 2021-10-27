@@ -66,7 +66,7 @@ describe("Feed method", () => {
 
 describe("Checkup method", () => {
   const pet = new Pet("Celine");
-  console.log(pet);
+
   test("Should return 'I feel great!' when fitness is > 3 and when hunger is < than 5", () => {
     expect(pet.checkup()).toBe("I feel great!");
   });
@@ -88,5 +88,24 @@ describe("Checkup method", () => {
     pet.hunger = 7;
     pet.fitness = 3;
     expect(pet.checkup()).toBe("I am hungry AND I need a walk");
+  });
+});
+
+describe("Getters", () => {
+  const pet = new Pet("Monica");
+  test("isAlive should return true", () => {
+    expect(pet.isAlive).toBe(true);
+  });
+  test("isAlive to return false", () => {
+    pet.age = 30;
+    expect(pet.isAlive).toBe(false);
+  });
+  test("isAlive to return false", () => {
+    pet.fitness = 0;
+    expect(pet.isAlive).toBe(false);
+  });
+  test("isAlive to return false", () => {
+    pet.hunger = 11;
+    expect(pet.isAlive).toBe(false);
   });
 });
