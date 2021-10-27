@@ -64,6 +64,15 @@ class Pet {
     const child = new Pet(name);
     this.children.push(child);
   }
+  adoptChild(child) {
+    if (!this.isAlive) {
+      throw new Error("Your pet is no longer alive :(");
+    }
+    if (typeof child !== "object") {
+      throw new Error("Can only adopt a Pet");
+    }
+    this.children.push(child);
+  }
 }
 
 module.exports = Pet;

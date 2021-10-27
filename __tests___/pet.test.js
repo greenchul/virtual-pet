@@ -183,3 +183,23 @@ describe("Children methods", () => {
     expect(parent.children[0].isAlive).toBe(false);
   });
 });
+
+describe("adoptChild method", () => {
+  const parent = new Pet("Sally");
+  const child = new Pet("Tim");
+  test("adoptChild method should add a child to parent children property", () => {
+    parent.adoptChild(child);
+    expect(parent.children.length).toBe(1);
+  });
+  test("Should throw an error if an object is not passed as a argument", () => {
+    expect(() => {
+      return parent.adoptChild("Child");
+    }).toThrow("Can only adopt a Pet");
+  });
+  test("Should throw an error if pet is no longer alive", () => {
+    parent.age = 50;
+    expect(() => {
+      return parent.adoptChild(child);
+    }).toThrow("Your pet is no longer alive :(");
+  });
+});
