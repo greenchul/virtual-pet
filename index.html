@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Virtual Pet</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Yuji+Mai&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Virtual Pet &#129409;</h1>
+    </header>
+    <main>
+      <section id="create-pet">
+        <div>
+          <form>
+            <label>Name: </label>
+            <input type="text" id="name" />
+          </form>
+          <button id="create-pet-button">Create Pet</button>
+        </div>
+      </section>
+      <section id="container">
+        <section id="pet">
+          <div id="pet-controlls">
+            <div>
+              <button id="grow-up-button">Grow up</button>
+            </div>
+            <div>
+              <button id="feed-button">Feed</button>
+            </div>
+            <div>
+              <button id="walk-button">Walk</button>
+            </div>
+          </div>
+        </section>
+        <section id="stats">
+          Age
+          <progress id="age" max="30" value="0"></progress>
+          <span id="age-number"></span><span>/30</span>
+          <div>
+            Hunger
+            <progress id="hunger" max="10" value="0"></progress>
+            <span id="hunger-number"></span><span>/10</span>
+          </div>
+          <div>
+            Fitness
+            <progress id="fitness" max="10" value="10"></progress>
+            <span id="fitness-number"></span><span>/10</span>
+          </div>
+        </section>
+      </section>
+    </main>
+    <footer></footer>
+    <script src="/src/pet.js"></script>
+    <script src="/src/contoller.js"></script>
+    <script>
+      console.log("Virtual pet connected");
+      const controller = new Controller();
+      let pet;
+
+      const createPetButton = document.getElementById("create-pet-button");
+      const petNameInput = document.getElementById("name");
+
+      const petAge = document.getElementById("age");
+      const petAgeNumber = document.getElementById("age-number");
+
+      const petHunger = document.getElementById("hunger");
+      const petHungerNumber = document.getElementById("hunger-number");
+
+      const petFitness = document.getElementById("fitness");
+      const petFitnessNumber = document.getElementById("fitness-number");
+
+      const growUpButton = document.getElementById("grow-up-button");
+      const feedButton = document.getElementById("feed-button");
+      const walkButton = document.getElementById("walk-button");
+
+      // create new instance of Pet on button click
+      createPetButton.addEventListener("click", () => {
+        pet = new Pet(petNameInput.value);
+        console.log("created new pet", pet);
+        petAgeNumber.innerHTML = `${pet.age}`;
+        petAge.value = pet.age;
+        petHunger.value = pet.hunger;
+        petHungerNumber.innerHTML = `${pet.hunger}`;
+        petFitness.value = pet.fitness;
+        petFitnessNumber.innerHTML = `${pet.fitness}`;
+      });
+
+      // grow up
+
+      growUpButton.addEventListener("click", () => {
+        pet.growUp();
+        console.log(pet);
+        petAgeNumber.innerHTML = `${pet.age}`;
+        petAge.value = pet.age;
+        petHunger.value = pet.hunger;
+        petHungerNumber.innerHTML = `${pet.hunger}`;
+        petFitness.value = pet.fitness;
+        petFitnessNumber.innerHTML = `${pet.fitness}`;
+      });
+
+      // feed
+      feedButton.addEventListener("click", () => {
+        pet.feed();
+        petAgeNumber.innerHTML = `${pet.age}`;
+        petAge.value = pet.age;
+        petHunger.value = pet.hunger;
+        petHungerNumber.innerHTML = `${pet.hunger}`;
+        petFitness.value = pet.fitness;
+        petFitnessNumber.innerHTML = `${pet.fitness}`;
+      });
+
+      // walk
+      walkButton.addEventListener("click", () => {
+        pet.walk();
+        petAgeNumber.innerHTML = `${pet.age}`;
+        petAge.value = pet.age;
+        petHunger.value = pet.hunger;
+        petHungerNumber.innerHTML = `${pet.hunger}`;
+        petFitness.value = pet.fitness;
+        petFitnessNumber.innerHTML = `${pet.fitness}`;
+      });
+    </script>
+  </body>
+</html>
