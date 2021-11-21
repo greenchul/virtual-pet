@@ -32,7 +32,7 @@ h1 {
 }
 
 input {
-  font-family: "Yuji Mai", serif;
+  font-family: "Karla", sans-serif;
 }
 #container {
   display: flex;
@@ -67,7 +67,7 @@ button {
   background-color: rgb(237, 249, 242);
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   #container {
     width: 100%;
   }
@@ -82,6 +82,6 @@ button {
     font-size: 10px;
   }
   h1 {
-    font-size: 50px;
+    font-size: 45px;
   }
 }
