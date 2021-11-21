@@ -4,21 +4,36 @@ html {
   font-family: "Yuji Mai", serif;
 }
 
+main {
+  font-family: "Karla", sans-serif;
+}
+
 header {
   display: flex;
   justify-content: center;
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 70px;
   font-weight: 900;
 }
 
-#create-pet {
+#create-pet,
+#description {
   display: flex;
   justify-content: center;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
+#create-pet div {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  font-family: "Yuji Mai", serif;
+}
 #container {
   display: flex;
   justify-content: space-evenly;
@@ -29,8 +44,44 @@ h1 {
 
 #pet {
   display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 progress {
   background-color: chartreuse;
+  margin: 5px;
+}
+
+button {
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 5px;
+  margin: 5px;
+  background-color: rgb(237, 249, 242);
+}
+
+@media screen and (max-width: 400px) {
+  #container {
+    width: 100%;
+  }
+  button {
+    font-size: 10px;
+  }
+  #create-pet,
+  #description {
+    font-size: 10px;
+  }
+  #stats {
+    font-size: 10px;
+  }
+  h1 {
+    font-size: 50px;
+  }
 }
