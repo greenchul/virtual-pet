@@ -4,6 +4,10 @@
 
 Virtual pet project as part of the Manchester Code curriculum to practice OOP, implement TDD & use NPM
 
+The GUI version of the project can be found [here] (https://greenchul.github.io/virtual-pet/)
+
+![Screenshot of project](https://github.com/greenchul/greenchul/blob/main/assets/virtual-pet.png)
+
 ## Installation
 
 - Clone this repo
